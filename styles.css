@@ -57,6 +57,7 @@ html {
   background-color: #708090;
   background-image: url("https://evilcinni.neocities.org/img/site/bg-pattern.png");
   background-attachment: fixed;
+  background-position: -25px -25px;
 }
 
 body {
