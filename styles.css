@@ -83,7 +83,7 @@ footer {
 
 button {
   background-color: var(--bg);
-  transition: all 50ms ease-out;
+  transition: background-color 50ms ease-out;
 
   &:active {
     background-color: var(--bg-darker);
