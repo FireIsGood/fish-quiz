@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap");
+
+/* Reset Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+fieldset {
+  border: none;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  background: unset;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+/* General Styles */
+:root {
+  --fg-muted: #444;
+  --bg: #bfbfbf;
+  --bg-transparent: #cfcfcfaa;
+  --bg-darker: #afafaf;
+  --primary-bg: #01017c;
+  --shadow-out: 2px 2px 0 #fffa inset, -2px -2px 0 #0002 inset;
+  --shadow-in: 2px 2px 0 #0002 inset, -2px -2px 0 #fffa inset;
+}
+
+html {
+  /* too lazy to make my own */
+  background-color: #708090;
+  background-image: url("https://evilcinni.neocities.org/img/site/bg-pattern.png");
+  background-attachment: fixed;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-optical-sizing: auto;
+  font-family: "STIX Two Text", serif;
+  font-size: 1.2rem;
+  overflow-x: clip;
+}
+
+main {
+  display: grid;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+footer {
+  background-color: var(--bg-transparent);
+  padding: 0 0.5em;
+  font-size: 14px;
+}
+
+button {
+  background-color: var(--bg);
+  transition: all 50ms ease-out;
+
+  &:active {
+    background-color: var(--bg-darker);
+  }
+}
+
+p:has(small) {
+  font-size: 0.8em;
+  color: var(--fg-muted);
+}
+
+article {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: var(--bg);
+  border: 2px solid black;
+  box-shadow:
+    2px 0 0 #fffa inset,
+    -2px -2px 0 #0002 inset,
+    6px 6px 0 -2px #0005;
+}
+
+article.quiz {
+  width: 100%;
+  min-height: 32rem;
+  max-width: 35rem;
+  margin-inline: auto;
+}
+
+article header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 4px;
+  padding: 0 4px;
+  background-color: var(--primary-bg);
+  color: white;
+}
+
+article header fieldset {
+  margin-left: auto;
+}
+
+/* Utility Styles */
+.space-children > * + * {
+  margin-top: 1em;
+}
+
+/* Specific sections */
+#help,
+#close {
+  height: calc(1rem * 1.5 - 6px);
+  color: black;
+  box-shadow: var(--shadow-out);
+  aspect-ratio: 1 / 1;
+
+  font-size: 80%;
+  text-align: center;
+}
+
+#fish-quiz {
+  margin: 1rem;
+  text-align: center;
+}
+
+.fish-image {
+  background-color: white;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+#fish-quiz fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  border: none;
+  padding: 2px;
+  margin-block: 2em;
+}
+
+#fish-quiz button,
+#fish-results button {
+  width: 10ch;
+  box-shadow:
+    var(--shadow-out),
+    1px 1px 0 black;
+
+  &:hover {
+    box-shadow:
+      var(--shadow-out),
+      0 0 0 1px black;
+  }
+}
+
+#fish-meter {
+  --fish-count: 0;
+  box-shadow: var(--shadow-in);
+  text-align: left;
+  font-size: 0.6em;
+  padding: 3px;
+  margin-inline: auto;
+  max-width: calc(0.75rem * 30 + 3px);
+  height: calc(1em * 1.5 + 6px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: calc(0.75rem * var(--fish-count, 0));
+    height: 1rem;
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--primary-bg),
+      var(--primary-bg) 0.66rem,
+      transparent 0.66rem,
+      transparent 0.75rem
+    );
+    transition: width 200ms ease;
+  }
+}
+
+#loading {
+  text-align: center;
+  margin: 1rem;
+}
+
+#fish-results {
+  text-align: center;
+  margin: 1rem;
+}
+
+.result-grid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
+  gap: 1rem;
+}
+
+.result-card {
+  box-shadow: var(--shadow-out);
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.5em 1em;
+}
+
+.fish-image-sm {
+  background-color: white;
+  max-width: 15ch;
+  margin-inline: auto;
+}
+
+/* Dialog */
+dialog {
+  place-self: center;
+  padding: 1rem;
+  background-color: var(--bg);
+  border: 2px solid black;
+
+  &::backdrop {
+    background-color: #0005;
+  }
+}

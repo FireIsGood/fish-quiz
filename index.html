@@ -1,0 +1,85 @@
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--=== HTML Meta Tags ===-->
+    <title>Fish: Find your true self</title>
+    <meta name="description" content="A fish quiz." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <!--=== Favicon ===-->
+    <link rel="icon" href="https://fav.farm/🐟" />
+    <!--=== CDN links ===-->
+    <!--=== Stylesheet ===-->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <article class="quiz">
+        <header>
+          <p>Fish: Find your true self</p>
+          <fieldset>
+            <button id="help">?</button>
+            <button id="close">X</button>
+          </fieldset>
+        </header>
+        <div id="fish-quiz" class="space-children">
+          <div class="fish-image">
+            <img
+              src="https://fishhudsonvalley.com/wordpress/wp-content/uploads/2015/08/large_mouth-bass-copy1.png"
+              alt="Largemouth Bass"
+            />
+          </div>
+          <p>Question <span id="question-counter">?/?</span></p>
+          <p id="question-text">"I have fond memories of being a fish."</p>
+          <fieldset>
+            <button id="btn-yes">Yes</button>
+            <button id="btn-no">No</button>
+            <button id="btn-possibly">Possibly</button>
+          </fieldset>
+          <div>
+            <div id="fish-meter" style="--fish-count: 0"></div>
+            <p>
+              <small>Level: <span id="fish-level">0</span></small>
+            </p>
+          </div>
+          <p>Fishy-o-meter</p>
+        </div>
+        <div id="loading" class="space-children" style="display: none">
+          <h2>Loading results</h2>
+          <p>Please wade warmly<span id="dots"></span></p>
+          <div class="fish-image">
+            <img src="https://media.tenor.com/ZHze27YyLIkAAAAC/joel-spinning.gif" alt="Spinning fish" />
+          </div>
+        </div>
+        <div id="fish-results" class="space-children" style="display: none">
+          <h2>Results</h2>
+          <div class="result-grid">
+            <div>
+              <p>You chose Yes <strong id="yes-count">?</strong> times</p>
+              <p>You chose No <strong id="no-count">?</strong> times</p>
+              <p>You chose Possibly <strong id="possibly-count">?</strong> times</p>
+            </div>
+            <div class="space-children">
+              <p>Your final fish level was <strong id="result-level">?</strong></p>
+              <p>Your rating is <strong id="result-rating">?</strong></p>
+            </div>
+          </div>
+          <div class="fish-image-sm">
+            <img src="https://media0.giphy.com/media/lPuW5AlR9AeWzSsIqi/giphy.gif" alt="fish pog" />
+          </div>
+          <button id="btn-retry">Try again?</button>
+        </div>
+      </article>
+    </main>
+    <footer>
+      <p>Created with 🐟 by FireIsGood</p>
+    </footer>
+    <dialog id="help-dialog">
+      <p>But nobody came...</p>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
