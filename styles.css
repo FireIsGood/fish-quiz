@@ -32,6 +32,8 @@ button {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+
+  user-select: none;
 }
 
 img {
@@ -41,6 +43,14 @@ img {
   display: block;
 }
 
+a {
+  color: var(--primary);
+
+  &:hover {
+    color: var(--primary-hover);
+  }
+}
+
 /* General Styles */
 :root {
   --fg-muted: #444;
@@ -48,6 +58,8 @@ img {
   --bg-transparent: #cfcfcfaa;
   --bg-darker: #afafaf;
   --primary-bg: #01017c;
+  --primary: #0117a7;
+  --primary-hover: #1617f2;
   --shadow-out: 2px 2px 0 #fffa inset, -2px -2px 0 #0002 inset;
   --shadow-in: 2px 2px 0 #0002 inset, -2px -2px 0 #fffa inset;
 }
@@ -76,6 +88,9 @@ main {
 }
 
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   background-color: var(--bg-transparent);
   padding: 0 0.5em;
   font-size: 14px;
@@ -148,6 +163,10 @@ article header fieldset {
 #fish-quiz {
   margin: 1rem;
   text-align: center;
+}
+
+#question-text {
+  min-height: calc(2 * 1em * 1.5);
 }
 
 .fish-image {
@@ -234,7 +253,7 @@ article header fieldset {
 .fish-image-sm {
   background-color: white;
   max-width: 15ch;
-  margin-inline: auto;
+  margin: 1.5em auto 0.5em;
 }
 
 /* Dialog */
