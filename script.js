@@ -203,7 +203,6 @@ let dotCount = 0;
 setInterval(() => {
   dots.innerText = ".".repeat(dotCount);
   dotCount = (dotCount + 1) % 4;
-  console.log("doing it");
 }, 500);
 
 // Initial state
